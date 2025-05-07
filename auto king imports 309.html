@@ -1,0 +1,1311 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Auto King Imports - Recondition Cars</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      background: #f5f6fa;
+      color: #333;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 0 1rem;
+    }
+    
+    header {
+      background: #111;
+      color: white;
+      padding: 1rem 0;
+    }
+    
+    header .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    nav a {
+      color: white;
+      margin-left: 1rem;
+      text-decoration: none;
+    }
+    
+    .hero {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: linear-gradient(to right, #dfe9f3, #ffffff);
+      padding: 2rem 1rem;
+    }
+    
+    .hero-text h2 {
+      font-size: 2rem;
+    }
+    
+    .hero-text button {
+      margin-top: 1rem;
+      padding: 0.5rem 1rem;
+      background: #00c6ff;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    
+    .filters {
+      background: #fff;
+      padding: 1rem 0;
+      border-bottom: 1px solid #ddd;
+    }
+    
+    .filters .container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+    }
+    
+    .filters select {
+      padding: 0.6rem 1rem;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      background-color: #f9f9f9;
+      min-width: 150px;
+    }
+    
+    .stocklist {
+      display: inline-block;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    
+    .car-card {
+      background: white;
+      padding: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    
+    .car-card img {
+      width: 100%;
+      border-radius: 10px;
+    }
+    
+    .placeholder {
+      background: #cce0ff;
+      padding: 2rem 1rem;
+      height: 200px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      border-radius: 10px;
+    }
+    
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: #222;
+      color: white;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="logo">
+        <h1>Auto King Imports</h1>
+      </div>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#">Used Cars</a></li>
+          <li><a href="#">Vehicle StockList</a></li>
+          <li><a href="#">Admin</a></li>
+          <li><a href="#">Logout</a></li>
+          <li><a href="#">Payment Method</a></li>
+          <li><a href="#">Bank-Loan</a></li>
+        </ul>
+      </nav>
+      <div class="login-form">
+        <form action="#" method="POST">
+          <input 
+            type="text" 
+            name="phone" 
+            placeholder="Phone Number" 
+            required 
+          />
+          <input 
+            type="password" 
+            name="password" 
+            placeholder="Password" 
+            required 
+          />
+          <button type="submit">Login/Sign Up</button>
+        </form>
+      </div>
+    </div>
+  </header>
+  <style>
+  /* General Header Styling */
+  header {
+    background-color: #111;
+    padding: 1rem 0;
+    color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 1rem;
+  }
+  
+  /* Logo Styling */
+  header .logo h1 {
+    font-size: 1.5rem;
+    margin: 0;
+    color: #00c6ff;
+  }
+  
+  /* Navigation Styling */
+  header nav {
+    flex-grow: 1;
+    margin-left: 2rem;
+  }
+  
+  header nav .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+  }
+  
+  header nav .nav-links li {
+    position: relative;
+  }
+  
+  header nav .nav-links a {
+    text-decoration: none;
+    color: white;
+    font-size: 1rem;
+    padding: 0.5rem 0.8rem;
+    border-radius: 5px;
+    transition: background 0.3s ease, color 0.3s ease;
+  }
+  
+  header nav .nav-links a:hover {
+    background: #00c6ff;
+    color: white;
+  }
+  
+  /* Login Form Styling */
+  header .login-form {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  header .login-form form {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  header .login-form input {
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 150px;
+  }
+  
+  header .login-form button {
+    padding: 0.5rem 1rem;
+    background: #00c6ff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: background 0.3s ease;
+  }
+  
+  header .login-form button:hover {
+    background: #007bbf;
+  }
+  </style>
+
+      <section class="hero">
+        <div class="hero-text">
+          <h2>Find Your Next Car</h2>
+          <p>High-quality imports from trusted sources</p>
+          <form action="#" method="GET">
+            <input 
+              type="text" 
+              name="car-name" 
+              placeholder="Enter car name..." 
+              style="padding: 0.5rem; font-size: 1rem; border: 1px solid #ccc; border-radius: 5px; width: 70%; max-width: 300px;" 
+            />
+            <button 
+              type="submit" 
+              style="margin-left: 0.5rem; padding: 0.5rem 1rem; background: #00c6ff; color: white; border: none; cursor: pointer; border-radius: 5px;">
+              Search
+            </button>
+          </form>
+        </div>
+        <img src="car-hero.png" alt="Red SUV" />
+      </section>
+  <section class="filters">
+    <div class="container">
+      
+        <select>
+            <option disabled selected>Location</option>
+            <option>Bangladesh</option>
+            <optgroup label="Districts of Bangladesh">
+              <option>Bagerhat</option>
+              <option>Bandarban</option>
+              <option>Barguna</option>
+              <option>Barisal</option>
+              <option>Bhola</option>
+              <option>Bogura</option>
+              <option>Brahmanbaria</option>
+              <option>Chandpur</option>
+              <option>Chattogram</option>
+              <option>Chuadanga</option>
+              <option>Cox's Bazar</option>
+              <option>Dhaka</option>
+              <option>Dinajpur</option>
+              <option>Faridpur</option>
+              <option>Feni</option>
+              <option>Gaibandha</option>
+              <option>Gazipur</option>
+              <option>Gopalganj</option>
+              <option>Habiganj</option>
+              <option>Jamalpur</option>
+              <option>Jashore</option>
+              <option>Jhalokati</option>
+              <option>Jhenaidah</option>
+              <option>Joypurhat</option>
+              <option>Khagrachari</option>
+              <option>Khulna</option>
+              <option>Kishoreganj</option>
+              <option>Kurigram</option>
+              <option>Kushtia</option>
+              <option>Lakshmipur</option>
+              <option>Lalmonirhat</option>
+              <option>Madaripur</option>
+              <option>Magura</option>
+              <option>Manikganj</option>
+              <option>Meherpur</option>
+              <option>Moulvibazar</option>
+              <option>Munshiganj</option>
+              <option>Mymensingh</option>
+              <option>Naogaon</option>
+              <option>Narail</option>
+              <option>Narayanganj</option>
+              <option>Narsingdi</option>
+              <option>Natore</option>
+              <option>Netrokona</option>
+              <option>Nilphamari</option>
+              <option>Noakhali</option>
+              <option>Pabna</option>
+              <option>Panchagarh</option>
+              <option>Patuakhali</option>
+              <option>Pirojpur</option>
+              <option>Rajbari</option>
+              <option>Rajshahi</option>
+              <option>Rangamati</option>
+              <option>Rangpur</option>
+              <option>Satkhira</option>
+              <option>Shariatpur</option>
+              <option>Sherpur</option>
+              <option>Sirajganj</option>
+              <option>Sunamganj</option>
+              <option>Sylhet</option>
+              <option>Tangail</option>
+              <option>Thakurgaon</option>
+            </optgroup>
+          </select>
+
+      <select>
+        <option disabled selected>Make</option>
+        <option>Toyota</option>
+        <option>Honda</option>
+        <option>Mazda</option>
+        <option>Nissan</option>
+        <option>Mitshubishi</option>
+        <option>Hyundai</option>
+      </select>
+
+      <select>
+        <option disabled selected>Body Type</option>
+        <option>Hatchback</option>
+        <option>SUV</option>
+        <option>Saloon</option>
+        <option>Estate</option>
+        <option>Bus</option>
+        <option>Truck</option>
+        <option>Van</option>
+      </select>
+
+      <select>
+        <option disabled selected>Budget</option>
+        <option>Under BDT1000,000</option>
+        <option>BDT5,000 - BDT10000,00</option>
+        <option>BDT10,000 - BDT20000,00</option> 
+        <option>BDT20,000 - BDT30000,00</option>
+        <option>BDT30,000 - BDT40000,00</option>
+        <option>BDT40,000 - BDT50000,00</option>
+        <option>BDT50,000 - BDT60000,00</option>
+        <option>BDT60,000 - BDT70000,00</option>
+        <option>BDT70,000 - BDT80000,00</option>
+        <option>BDT80,000 - BDT90000,00</option>
+        <option>BDT90,000 - BDT100000,00</option>
+        <option>BDT100,000 - BDT200000,00</option>
+
+       
+      </select>
+
+      <select>
+        <option disabled selected>Gearbox</option>
+        <option>Manual</option>
+        <option>Automatic</option>
+      </select>
+
+      <select>
+        <option disabled selected>Fuel</option>
+        <option>Petrol</option>
+        <option>Diesel</option>
+        <option>Hybrid</option>
+        <option>Electric</option>
+      </select>
+    </div>
+  </section>
+
+  <section class="stocklist container">
+    <div class="car-card">
+      <img src="/Users/rafiulislam/Downloads/Toyota-Corolla-Cross-Japan.jpg" alt="Toyota Corolla Cross">
+      <h3>Toyota Corolla Cross</h3>
+      <p>MODEL: 2021 </p>
+      <p>PACKAGE: Z LEATHER </p>
+      <p>COLOR: SILVER </p>
+      <p>TRANSMISSION: CVT</p>
+      <p>ENGINE: 1800CC</p>
+      <p>FUEL: PETROL</p>
+      <p>DRIVE: 2WD</p>
+      <p>WHEEL: RIGHT</p>
+      <h3>PRICE: BDT 4,500,000</h3>
+
+    </div>
+    <div class="car-card">
+      <img src="/Users/rafiulislam/Documents/civic.jpg" alt="Honda Civic">
+      <h3>Honda Civic</h3>
+      <p>MODEL: 2020 </p>
+      <p>PACKAGE: BASIC </p>
+      <p>COLOR: RED </p>
+      <p>TRANSMISSION: CVT</p>
+      <p>ENGINE: 1800CC</p>
+      <p>FUEL: PETROL</p>
+      <p>DRIVE: 2WD</p>
+      <p>WHEEL: RIGHT </p>
+      <h3>PRICE: BDT 4,300,000 </h3>
+    </div>
+    <div class="car-card">
+      <img src="/Users/rafiulislam/Downloads/axio.jpeg " alt="Toyota Axio ">
+      <h3>Toyota Axio</h3>
+      <p>MODEL: 2020 </p>
+      <p>PACKAGE: EX </p>
+      <p>COLOR: PEARL </p>
+      <p>TRANSMISSION: CVT</p>
+      <p>ENGINE: 1500CC</p>
+      <p>FUEL: PETROL</p>
+      <p>DRIVE: 2WD</p>
+      <p>WHEEL: RIGHT </p>
+      <h3>PRICE: BDT 2,400,000 </h3>
+    </div>
+    <div class="car-card">
+      <img src="/Users/rafiulislam/Downloads/HARRIER-HYBRID-.jpg" alt="Toyota Harrier">
+      <h3>Toyota Harrier</h3>
+      <p>MODEL: 2020 </p>
+      <p>PACKAGE: Z LEATHER </p>
+      <p>COLOR: PEARL </p>
+      <p>TRANSMISSION: CVT</p>
+      <p>ENGINE: 2000CC</p>
+      <p>FUEL: PETROL</p>
+      <p>DRIVE: 2WD</p>
+      <p>WHEEL: RIGHT </p>
+      <h3>PRICE: BDT 8,500,000 </h3>
+    </div>
+    <div class="car-card">
+      <img src="/Users/rafiulislam/Downloads/1666158281-Nissan X-Trail.webp" alt="Mitsubishi Outlander">
+      <h3>NISSAN X-TRAIL</h3>
+      <p>MODEL: 2022 </p>
+      <p>PACKAGE: XI EMERGENCY PACKAGE </p>
+      <p>COLOR: BLACK </p>
+      <p>TRANSMISSION: CVT</p>
+      <p>ENGINE: 1500CC</p>
+      <p>FUEL: PETROL</p>
+      <p>DRIVE: 2WD</p>
+      <p>WHEEL: RIGHT </p>
+      <h3>PRICE: BDT 7,100,000 </h3>
+    </div>
+</div>
+<div class="car-card">
+  <img src="/Users/rafiulislam/Downloads/2017-Mazda-MX-5-Miata-RF-front-end.jpg.avif" alt="Coming soon">
+  <h3>MAZDA ROADSTAR MX-5</h3>
+  <p>MODEL: 2020 </p>
+  <p>PACKAGE: TARGA EDITION</p>
+  <p>COLOR: GREY </p>
+  <p>TRANSMISSION: CVT</p>
+  <p>ENGINE: 1500CC</p>
+  <p>FUEL: PETROL</p>
+  <p>DRIVE: 2WD</p>
+  <p>WHEEL: RIGHT </p>
+  <h3>PRICE: BDT 5,600,000 </h3>
+</div>
+</div>
+<div class="car-card">
+  <img src="/Users/rafiulislam/Downloads/toyota-hiace-super-grandia-review-road-test-front-quarter-exterior-5e312a8a6f4e0.jpg" alt="Coming soon">
+  <h3>TOYOTA HIACE</h3>
+  <p>MODEL: 2023 </p>
+  <p>PACKAGE: SUPER GRANDI</p>
+  <p>COLOR: PEARL </p>
+  <p>TRANSMISSION: CVT</p>
+  <p>ENGINE: 2800CC</p>
+  <p>FUEL: PETROL</p>
+  <p>DRIVE: 2WD</p>
+  <p>WHEEL: RIGHT </p>
+  <h3>PRICE: BDT 6,100,000 </h3>
+</div>
+
+    <div class="placeholder">
+      <h3>More Cars Coming Soon!</h3>
+      <p>Stay tuned for more amazing deals and offers.</p>
+    </div>
+    <div class="car-card"></div>
+  </section>
+      
+
+ <footer>
+        <p>&copy; 2025 Auto King Imports. All rights reserved.</p>
+      </footer>
+    </body>
+    </html>
+
+    
+    
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <title>Auto King Imports - Search</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <style>
+        * {
+          box-sizing: border-box;
+        }
+    
+        body {
+          font-family: sans-serif;
+          background: #f3f3f3;
+          padding: 20px;
+          margin: 0;
+        }
+    
+        h1 {
+          font-size: 26px;
+          margin-bottom: 20px;
+        }
+    
+        h1 span {
+          color: orange;
+        }
+    
+        .container {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+          gap: 20px;
+        }
+    
+        .box {
+          background: white;
+          border-radius: 10px;
+          padding: 15px;
+          box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
+    
+        .box h3 {
+          margin-top: 0;
+          color: orange;
+          font-size: 16px;
+          margin-bottom: 10px;
+        }
+    
+        .box label {
+          display: block;
+          margin: 8px 0;
+          font-size: 14px;
+          color: #333;
+        }
+    
+        input[type="checkbox"] {
+          margin-right: 6px;
+          transform: scale(1.1);
+          accent-color: orange;
+        }
+    
+        .search-btn {
+          margin-top: 30px;
+          background: orange;
+          color: white;
+          border: none;
+          padding: 14px 32px;
+          border-radius: 30px;
+          font-size: 16px;
+          cursor: pointer;
+          transition: background 0.3s;
+        }
+    
+        .search-btn:hover {
+          background: darkorange;
+        }
+    
+        .center-btn {
+          text-align: center;
+          margin-top: 20px;
+        }
+    
+        @media (max-width: 600px) {
+          h1 {
+            font-size: 22px;
+            text-align: center;
+          }
+          .search-btn {
+            width: 100%;
+          }
+        }
+      </style>
+    </head>
+    <body>
+    
+      <h1>Search by <span>Specifications</span></h1>
+    
+      <div class="container">
+        <!-- Price -->
+        <div class="box">
+          <h3>Price</h3>
+          <label><input type="checkbox"> 1 - 10 Lacs</label>
+          <label><input type="checkbox"> 10 - 20 Lacs</label>
+          <label><input type="checkbox"> 20 - 30 Lacs</label>
+          <label><input type="checkbox"> 30 - 40 Lacs</label>
+          <label><input type="checkbox"> 40 - 50 Lacs</label>
+          <label><input type="checkbox"> 50 Lacs or above</label>
+        </div>
+    
+        <!-- Mileage -->
+        <div class="box">
+          <h3>Mileage</h3>
+          <label><input type="checkbox"> 10,000 km or below</label>
+          <label><input type="checkbox"> 10,000 to 30,000 km</label>
+          <label><input type="checkbox"> 30,000 to 50,000 km</label>
+          <label><input type="checkbox"> 50,000 to 1,00,000 km</label>
+          <label><input type="checkbox"> 1,00,000 to 1,50,000 km</label>
+          <label><input type="checkbox"> Over 1,50,000 km</label>
+        </div>
+    
+        <!-- Seating Capacity -->
+        <div class="box">
+          <h3>Seating Capacity</h3>
+          <label><input type="checkbox"> 2 Seats</label>
+          <label><input type="checkbox"> 4 Seats</label>
+          <label><input type="checkbox"> 5 Seats</label>
+          <label><input type="checkbox"> 7 Seats</label>
+          <label><input type="checkbox"> 8 Seats</label>
+          <label><input type="checkbox"> 10 Seats or above</label>
+        </div>
+    
+        <!-- Engine Capacity -->
+        <div class="box">
+          <h3>Engine Capacity</h3>
+          <label><input type="checkbox"> 800 cc or less</label>
+          <label><input type="checkbox"> 1,000 to 1,499 cc</label>
+          <label><input type="checkbox"> 1,500 to 1,999 cc</label>
+          <label><input type="checkbox"> 2,000 to 2,499 cc</label>
+          <label><input type="checkbox"> 2,500 to 2,999 cc</label>
+          <label><input type="checkbox"> 3,000 cc or above</label>
+        </div>
+      </div>
+    
+      <div class="center-btn">
+        <button class="search-btn">Search 🔍</button>
+      </div>
+    
+    </body>
+    </html>
+    
+
+
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Auto King Imports</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      background: #f9f9f9;
+      color: #333;
+    }
+
+    .steps-container {
+      display: flex;
+      justify-content: space-around;
+      background: #fff;
+      padding: 40px 20px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+      margin: 20px;
+      border-radius: 10px;
+    }
+
+    .step-box {
+      text-align: center;
+      max-width: 220px;
+    }
+
+    .step-box img,
+    .step-box i {
+      font-size: 40px;
+      margin-bottom: 10px;
+      color: #ff6f3c;
+    }
+
+    .step-title {
+      font-weight: bold;
+      font-size: 1.1rem;
+      margin-bottom: 5px;
+    }
+
+    .step-subtitle {
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    .featured-section {
+      padding: 40px 20px;
+    }
+
+    .featured-section h2 {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+    }
+
+    .featured-section h2 span {
+      color: #ff6f3c;
+    }
+
+    .article-card {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      max-width: 400px;
+    }
+
+    .article-card h3 {
+      margin: 0;
+      font-size: 1.2rem;
+      color: #000;
+    }
+
+    .article-card p {
+      margin: 10px 0;
+      color: #555;
+    }
+
+    .read-more {
+      color: #00bcd4;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .see-all {
+      text-align: right;
+      margin-top: 20px;
+      font-size: 0.9rem;
+      color: #888;
+    }
+
+    .buy-now {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #ff6f3c;
+      color: white;
+      border-radius: 50%;
+      width: 90px;
+      height: 90px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      font-weight: bold;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      font-size: 1rem;
+      text-align: center;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 4-Step Process -->
+  <div class="steps-container">
+    <div class="step-box">
+      <div>🛒</div>
+      <div class="step-title">Choose Your Car</div>
+      <div class="step-subtitle">We have compiled recommended information that you want to know to buy your car.</div>
+    </div>
+    <div class="step-box">
+      <div>📞</div>
+      <div class="step-title">Contact Seller</div>
+      <div class="step-subtitle">After you've selected a car, we arrange a viewing to seller location or one of our points.</div>
+    </div>
+    <div class="step-box">
+      <div>📝</div>
+      <div class="step-title">Financing & Registration</div>
+      <div class="step-subtitle">We deal with the paper work to avail your financing and registration in 24 hours.</div>
+    </div>
+    <div class="step-box">
+      <div>✅</div>
+      <div class="step-title">Get Your Car</div>
+      <div class="step-subtitle">Embrace the joy of Car Ownership without any of the hassle!</div>
+    </div>
+  </div>
+
+  <!-- Featured Articles -->
+  <div class="featured-section">
+    <h2>Featured <span>Articles</span></h2>
+    <div class="article-card">
+      <h3>undefined</h3>
+      <p>undefined</p>
+      <a href="#" class="read-more">Read More →</a>
+    </div>
+    <div class="see-all">
+      🔴 See All Articles
+    </div>
+  </div>
+
+  <!-- Buy Now Button -->
+  <div class="buy-now">
+    Buy Now<br>+
+  </div>
+
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Auto King Imports</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      background: #f9f9f9;
+      color: #333;
+    }
+
+    /* Header Features */
+    .features {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      background: #fff;
+      border-bottom: 1px solid #eee;
+      padding: 20px 10px;
+      flex-wrap: wrap;
+    }
+
+    .feature-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1rem;
+      padding: 10px;
+      flex: 1 1 200px;
+      max-width: 300px;
+    }
+
+    .feature-item i {
+      font-size: 1.5rem;
+      color: #ff6f3c;
+    }
+
+    /* Newsletter Section */
+    .newsletter {
+      background: #4d4d4d;
+      color: white;
+      padding: 50px 20px;
+      text-align: center;
+      clip-path: polygon(0 0, 100% 0, 85% 100%, 0% 100%);
+    }
+
+    .newsletter input[type="email"] {
+      padding: 15px;
+      width: 300px;
+      max-width: 80%;
+      border: none;
+      border-radius: 30px 0 0 30px;
+      outline: none;
+    }
+
+    .newsletter button {
+      padding: 15px 30px;
+      border: none;
+      background: #ff6f3c;
+      color: white;
+      border-radius: 0 30px 30px 0;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    /* Footer */
+    footer {
+      background: #fff;
+      padding: 40px 20px;
+      color: #333;
+    }
+
+    .footer-top {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      align-items: center;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 30px;
+    }
+
+    .footer-top img {
+      height: 32px;
+      background: white;
+      padding: 5px;
+      border-radius: 8px;
+    }
+
+    .footer-columns {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin-top: 40px;
+      gap: 40px;
+    }
+
+    .footer-column {
+      flex: 1;
+      min-width: 180px;
+    }
+
+    .footer-column h4 {
+      font-size: 1rem;
+      margin-bottom: 10px;
+      position: relative;
+    }
+
+    .footer-column h4::after {
+      content: '';
+      width: 30px;
+      height: 2px;
+      background: #ff6f3c;
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+    }
+
+    .footer-column ul {
+      list-style: none;
+      padding: 0;
+      margin-top: 15px;
+    }
+
+    .footer-column ul li {
+      margin-bottom: 8px;
+      font-size: 0.95rem;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 0.85rem;
+      color: #777;
+    }
+
+    .social-icons {
+      margin-top: 20px;
+    }
+
+    .social-icons a {
+      display: inline-block;
+      margin-right: 10px;
+      color: inherit;
+      font-size: 1.5rem;
+    }
+
+    .buy-now {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #ff6f3c;
+      color: white;
+      border-radius: 50%;
+      width: 90px;
+      height: 90px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      font-weight: bold;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      font-size: 1rem;
+      text-align: center;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header Features -->
+  <div class="features">
+    <div class="feature-item"><i>🏆</i> #1 Auto Portal in Bangladesh</div>
+    <div class="feature-item"><i>🚗</i> Car Sold in every 30 minutes</div>
+    <div class="feature-item"><i>💰</i> Stay Updated, Pay Less</div>
+    <div class="feature-item"><i>🔍</i> Choose the right car for you</div>
+  </div>
+
+  <!-- Newsletter Section -->
+  <div class="newsletter">
+    <h2>Get Latest Updates & Offers from Auto King Imports</h2>
+    <form>
+      <input type="email" placeholder="Please enter your email..." required>
+      <button type="submit">📩 SUBMIT</button>
+    </form>
+  </div>
+
+  <!-- Footer Section -->
+  <footer>
+    <!-- Payment Logos -->
+    <div class="footer-top">
+      <span>Pay With</span>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/Visa_Logo.png" alt="Visa" />
+      <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="Mastercard" />
+      <img src="https://upload.wikimedia.org/wikipedia/commons/3/30/Amex_Logo.svg" alt="Amex" />
+      <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/Nagad_Logo.svg" alt="Nagad" />
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/69/BKash_logo.svg" alt="bKash" />
+    </div>
+
+    <!-- Footer Columns -->
+    <div class="footer-columns">
+      <div class="footer-column">
+        <p>Auto King Imports is your trusted partner for importing high-quality vehicles into Bangladesh. We help you find the right car at the right price.</p>
+        <div class="social-icons">
+          <a href="#"><i>🌐</i></a>
+          <a href="#"><i>📺</i></a>
+          <a href="#"><i>💼</i></a>
+          <a href="#"><i>📸</i></a>
+          <a href="#"><i>✉️</i></a>
+        </div>
+      </div>
+
+      <div class="footer-column">
+        <h4>SERVICES</h4>
+        <ul>
+          <li>Buy Car</li>
+          <li>Buy Bike</li>
+          <li>Sell Car / Bike</li>
+          <li>Parts</li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h4>ABOUT US</h4>
+        <ul>
+          <li>About Auto King</li>
+          <li>Contact Us</li>
+          <li>Terms and Conditions</li>
+          <li>Privacy Policy</li>
+          <li>Refund Policy</li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h4>MORE</h4>
+        <ul>
+          <li>Car Compare</li>
+          <li>Car Reviews</li>
+          <li>News and Reviews</li>
+          <li>Warranties & Support</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Bottom -->
+    <div class="footer-bottom">
+      © 2025 Auto King Imports. All Rights Reserved.
+    </div>
+  </footer>
+
+  <!-- Buy Now Floating Button -->
+  <div class="buy-now">
+    Buy Now<br>+
+  </div>
+
+</body>
+</html>
+
+    
+     
+    
+    <footer>
+      <div class="footer-top">
+        <div class="footer-column">
+          <h4><a href="#">Help Centre</a></h4>
+          <p>Sunday to Thrusday 9.00 - 18.00<br>
+          Saturday 9.00 - 17.30<br>
+          Friday and Bank Holidays CLOSED</p>
+          <div class="footer-social">
+            <i class="fab fa-facebook-f"></i>
+            <i class="fab fa-x-twitter"></i>
+            <i class="fab fa-instagram"></i>
+            <i class="fab fa-youtube"></i>
+            <i class="fab fa-tiktok"></i>
+          </div>
+        </div>
+        <div class="footer-column">
+          <a href="#">Car news and advice</a><br>
+          <a href="#">Car reviews</a><br>
+          <a href="#">Compare cars</a><br>
+          <a href="#">Find a car</a><br>
+          <a href="#">New car deals</a><br>
+          <a href="#">Nearly new cars</a><br>
+          <a href="#">Used cars</a><br>
+          <a href="#">Car leasing</a><br>
+          <a href="#">Sell my car</a><br>
+          <a href="#">Car finance</a><br>
+        </div>
+        <div class="footer-column">
+          <a href="#">About us</a><br>
+          <a href="#">Contact us</a><br>
+          <a href="#">Leadership team</a><br>
+          <a href="#">Authors and experts</a><br>
+          <a href="#">How we test cars</a><br>
+          <a href="#">Careers</a><br>
+          <a href="#">Dealer & brand partners</a><br>
+          <a href="#">Refer a friend</a>
+        </div>
+        <div class="footer-column trustpilot">
+          <p>Rated <span>4.5/5</span> from <span>68,181</span> reviews</p>
+          <img src=" " alt="Trustpilot" style="width: 120px; margin-top: 5px;">
+        </div>
+      </div>
+    
+      <div class="footer-bottom">
+        <div class="flags">
+          <img src=" " alt="Bangladesh"> 
+          
+        </div>
+        <div style="margin-top: 10px;">
+          <a href="#">Terms & conditions</a>
+          <a href="#">Manage cookies & privacy</a>
+          <a href="#">Fraud disclaimer</a>
+          <a href="#">ESG Policy</a>
+          <a href="#">Privacy policy</a>
+          <a href="#">Modern slavery statement</a>
+          <a href="#">Sitemap</a>
+        </div>
+    
+        <div class="footer-legal">
+          <p>* Please contact the dealer for a personalised quote...</p>
+          <p>** <a href="#">Our marketing claims explained.</a></p>
+          <p>Average savings are calculated daily based on the best dealer prices...</p>
+          <p>AUTO KING IMPORTS Ltd is registered in England (company number 07103079)...</p>
+        </div>
+      </div>
+    </footer>
+    
+
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard - Auto King Imports</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      background: #f5f6fa;
+      color: #333;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 1rem;
+    }
+
+    header {
+      background: #111;
+      color: white;
+      padding: 1rem 0;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+    }
+
+    .dashboard {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 2rem;
+    }
+
+    .dashboard-menu {
+      width: 20%;
+      background: #fff;
+      padding: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .dashboard-menu ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .dashboard-menu li {
+      margin-bottom: 1rem;
+    }
+
+    .dashboard-menu li button {
+      width: 100%;
+      padding: 0.5rem 1rem;
+      background: #00c6ff;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+
+    .dashboard-menu li button:hover {
+      background: #007bbf;
+    }
+
+    .dashboard-content {
+      width: 75%;
+      background: #fff;
+      padding: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .dashboard-content h2 {
+      margin-top: 0;
+    }
+
+    .logout-btn {
+      margin-top: 2rem;
+      padding: 0.5rem 1rem;
+      background: #e91e63;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .logout-btn:hover {
+      background: #c2185b;
+    }
+
+    .form-group {
+      margin-bottom: 1rem;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .form-group button {
+      padding: 0.5rem 1rem;
+      background: #00c6ff;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .form-group button:hover {
+      background: #007bbf;
+    }
+
+    .payment-list table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .payment-list th, .payment-list td {
+      border: 1px solid #ddd;
+      padding: 0.8rem;
+      text-align: left;
+    }
+
+    .payment-list th {
+      background: #00c6ff;
+      color: white;
+    }
+
+    .remove-btn {
+      padding: 0.3rem 0.6rem;
+      background: #e91e63;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .remove-btn:hover {
+      background: #c2185b;
+    }
+  
